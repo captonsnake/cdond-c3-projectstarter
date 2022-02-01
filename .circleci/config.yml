@@ -270,13 +270,13 @@ jobs:
 workflows:
   default:
     jobs:
-      - build-frontend
+      - build-frontend:
         filters:
           branches:
             only:
               - main
               - master
-      - build-backend
+      - build-backend:
         filters:
           branches:
             only:
