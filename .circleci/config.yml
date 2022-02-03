@@ -208,7 +208,8 @@ jobs:
         - run:
             name: Install dependencies
             command: |
-              yum install -y tar gzip aws-cli
+              sudo apt-get update
+              sudo apt-get -y install tar gzip awscli
         - run:
             name: prepare environment for backend build
             command: |
