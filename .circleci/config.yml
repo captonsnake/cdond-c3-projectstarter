@@ -133,8 +133,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apt-get update
-            apt-get -y install tar gzip
+            yum install -y tar gzip
       - run:
           name: Ensure back-end infrastructure exists
           command: |
