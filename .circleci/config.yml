@@ -189,7 +189,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update python3 ansible tar gzip
+            apk add --update python3 ansible tar gzip aws-cli npm
       - run:
           name: Configure server
           command: |
@@ -205,6 +205,10 @@ jobs:
         - checkout
         - restore_cache:
             keys: [backend-build]
+        - run:
+            name: Install dependencies
+            command: |
+              yum install -y tar gzip aws-cli
         - run:
             name: Run migrations
             command: |
@@ -240,7 +244,7 @@ jobs:
           command: |
             yum install -y curl tar sudo
             curl -sL https://rpm.nodesource.com/setup_13.x | sudo bash -
-            yum install -y nodejs
+            yum install -y nodejs npm
       - run:
           name: Get backend url
           command: |
@@ -275,7 +279,7 @@ jobs:
           name: Install dependencies
           command: |
             apk update
-            apk add --update ansible aws-cli openssh-client tar
+            apk add --update ansible aws-cli openssh-client tar npm
       - run:
           name: compress backend
           command: |
@@ -298,7 +302,7 @@ jobs:
           name: Install dependencies
           command: |
             apk update
-            apt add --update curl
+            apk add --update curl aws-cli npm
       - run:
           name: Backend Smoke Test
           command: |
